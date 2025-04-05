@@ -12,7 +12,12 @@ api_version = os.getenv("AZURE_API_VERSION")
 
 
 agent = Agent(
-    model=AzureAIFoundry(id="DeepSeek-R1"),
+    model=AzureAIFoundry(
+        id="DeepSeek-R1",
+        azure_endpoint=azure_endpoint,
+        api_key=api_key,
+        api_version=api_version,
+    ),
     tools=[DuckDuckGoTools()],
     show_tool_calls=True,
     markdown=True,
